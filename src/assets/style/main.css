@@ -1,0 +1,18 @@
+h1 {
+  color: white;
+}
+
+.creature-main-image {
+  max-width: 100px;
+  mix-blend-mode: multiply;
+}
+
+body {
+  background-color: pink;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}/*# sourceMappingURL=main.css.map */
