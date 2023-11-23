@@ -24,14 +24,16 @@ class DigimonModal extends Component {
 
   render() {
     return (
-      <div>
-        <h1>DIGIMON MODAL</h1>
-        <span className="close-modal" onClick={this.props.onClose}>
-          &times;
-        </span>
-        <h2>
-          {this.props.selectedDigimon ? this.props.selectedDigimon.name : ""}
-        </h2>
+      <div className="modal-background">
+        <div className="modal-content">
+          <h1>DIGIMON MODAL</h1>
+          <span className="close-modal" onClick={this.props.onClose}>
+            &times;
+          </span>
+          <h2>
+            {this.props.selectedDigimon ? this.props.selectedDigimon.name : ""}
+          </h2>
+        </div>
       </div>
     );
   }

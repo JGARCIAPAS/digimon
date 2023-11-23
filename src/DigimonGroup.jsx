@@ -14,7 +14,8 @@ class DigimonGroup extends Component {
 
   componentDidMount() {
     fetch(
-      `https://digimon-api.vercel.app/api/digimon/level/${this.props.level}`
+      `https://www.digi-api.com/api/v1/digimon?level=${this.props.level}&pageSize=1422`
+      /*  `https://digimon-api.vercel.app/api/digimon/level/${this.props.level}` */
     )
       .then((response) => {
         if (!response.ok) {
@@ -23,7 +24,11 @@ class DigimonGroup extends Component {
         return response.json();
       })
       .then((data) => {
-        this.setState({ data: data });
+        console.log(data.content);
+        this.setState({ data: data.content });
+        console.log("start digimon de cada nivel");
+        console.log(this.state.data);
+        console.log("end digimon de cada nivel");
       })
       .catch((error) => {
         console.error("fetch error", error);
@@ -39,18 +44,24 @@ class DigimonGroup extends Component {
     return (
       <>
         <div>
-          <h1>Digimon Group: Fresh</h1>
-          <ul>
-            {this.state.data.map((creature, index) => (
-              <li key={index} onClick={() => this.openModal(creature)}>
-                <p>{creature.name}</p>
-                <picture>
-                  <source srcSet={creature.img}></source>
-                  <img src={creature.img} className="creature-main-image" />
-                </picture>
-              </li>
-            ))}
-          </ul>
+          <h1>Digimon Group: {this.props.level}</h1>
+          {
+            <ul className="digimon-group">
+              {this.state.data.map((creature, index) => (
+                <li
+                  key={index}
+                  className="creature"
+                  onClick={() => this.openModal(creature)}
+                >
+                  <p>{creature.name}</p>
+                  <picture>
+                    <source srcSet={creature.image}></source>
+                    <img src={creature.image} className="creature-main-image" />
+                  </picture>
+                </li>
+              ))}
+            </ul>
+          }
         </div>
 
         {this.state.showModal && (
