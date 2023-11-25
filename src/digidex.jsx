@@ -1,5 +1,6 @@
 import { Component } from "react";
 import DigimonGroup from "./DigimonGroup";
+import Search from "./Search";
 
 class Digidex extends Component {
   constructor(props) {
@@ -36,43 +37,10 @@ class Digidex extends Component {
           .sort((a, b) => order[a.name] - order[b.name])
           .slice(1);
         this.setState({ levels: orderedLevels });
-        console.log("start niveles");
-        console.log(this.state.levels);
-        console.log("end niveles");
       })
       .catch((error) => {
         console.error("fetch error", error);
       });
-    /*  fetch("https://digimon-api.vercel.app/api/digimon")
-      .then((response) => {
-        if (!response.ok) {
-          console.log("response error");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const allLevels = data.map((creature) => creature.level);
-        const filteredLevels = [...new Set(allLevels)];
-        const order = {
-          Fresh: 1,
-          "In Training": 2,
-          Training: 3,
-          Rookie: 4,
-          Champion: 5,
-          Ultimate: 6,
-          Mega: 7,
-          Armor: 8,
-        };
-        const orderedLevels = filteredLevels.sort(
-          (a, b) => order[a] - order[b]
-        );
-        console.log(orderedLevels);
-        this.setState({ levels: orderedLevels });
-      })
-      .catch((error) => {
-        console.error("fetch error", error);
-      }); */
-
     // Initialising the canvas
     var canvas = document.querySelector("canvas"),
       ctx = canvas.getContext("2d");
@@ -97,7 +65,7 @@ class Digidex extends Component {
 
     // Setting up the draw function
     function draw() {
-      ctx.fillStyle = "rgba(0, 0, 0, .1)";
+      ctx.fillStyle = "rgba(32, 32, 32, .1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       for (var i = 0; i < drops.length; i++) {
         var text = letters[Math.floor(Math.random() * letters.length)];
@@ -117,8 +85,14 @@ class Digidex extends Component {
     return (
       <div className="digidex">
         <div className="digidex-container">
-          <h1>Digidex</h1>
-          <ul>
+          <div className="header">
+            <picture className="logo">
+              <source srcSet="./src/assets/img/digidex_logo.png"></source>
+              <img className="logo" src="./src/assets/img/digidex_logo.png" />
+            </picture>
+          </div>
+          <Search />
+          <ul className="row-level">
             {this.state.levels.map((level, index) => (
               <DigimonGroup key={index} level={level.name} />
             ))}

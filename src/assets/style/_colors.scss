@@ -1,0 +1,28 @@
+$white: #ffff;
+$black: #000;
+$blacktrans50: rgba(0, 0, 0, 0.5);
+$blacktrans30: rgba(0, 0, 0, 0.3);
+
+$green-0: rgba(74, 210, 32, 1);
+$green-1: rgba(137, 229, 108, 1);
+$green-2: rgba(104, 219, 68, 1);
+$green-3: rgba(47, 177, 6, 1);
+$green-4: rgba(34, 139, 0, 1);
+$green-bg: rgba(152, 191, 133, 1);
+$dark: rgba(32, 32, 32, 1);
+
+$disabled: rgba(59, 126, 59, 0.5);
+
+$gradient-1: linear-gradient(18deg, $green-4 35%, $green-1 100%);
+$gradient-2: linear-gradient(
+  90deg,
+  rgba(47, 117, 6, 1) 0%,
+  rgba(123, 197, 123, 1) 51%,
+  rgba(47, 117, 6, 1) 100%
+);
+
+/* .rgba-primary-0 { color: rgba( 74,210, 32,1) }
+.rgba-primary-1 { color: rgba(137,229,108,1) }
+.rgba-primary-2 { color: rgba(104,219, 68,1) }
+.rgba-primary-3 { color: rgba( 47,177,  6,1) }
+.rgba-primary-4 { color: rgba( 34,139,  0,1) } */

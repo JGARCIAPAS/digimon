@@ -1,12 +1,18 @@
+@use "search";
 @use "digimongroup";
 @use "digimonmodal";
+@import "colors";
+@import "fonts";
 
 * {
   margin: 0;
   padding: 0;
 }
+
 body {
-  background-color: #000;
+  background-color: $dark;
+  overflow-x: hidden;
+  font-family: $pixel-font;
 }
 ul {
   list-style-type: none;
@@ -20,7 +26,7 @@ canvas {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 .digidex {
   position: relative;
@@ -29,3 +35,50 @@ canvas {
   position: relative;
   z-index: 10;
 }
+.header {
+  text-align: center;
+}
+.logo {
+  width: 225px;
+  margin: 25px auto;
+}
+.row-level {
+  overflow-x: hidden;
+  .container-level {
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 5px 17px 0px 17px;
+  }
+  .container-level:first-child {
+    border-radius: 10px 10px 0px 0px;
+  }
+  .container-level:last-child {
+    border-radius: 0px 0px 10px 10px;
+  }
+}
+
+/* Ancho de la barra de desplazamiento */
+::-webkit-scrollbar {
+  height: 5px; /* Para navegadores WebKit (Chrome, Safari, etc.) */
+}
+
+/* Estilo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: transparent; /* Color del fondo de la barra */
+}
+
+::-webkit-scrollbar-thumb {
+  background: $green-3; /* Color del "pulgar" de la barra */
+  border-radius: 30px;
+}
+
+/* Estilo al pasar el cursor sobre la barra */
+::-webkit-scrollbar-thumb:hover {
+  background: $green-4; /* Cambio de color al pasar el cursor */
+}
+
+/* Estilos de la barra de desplazamiento para Firefox */
+/* Ancho de la barra de desplazamiento */
+//scrollbar-width: thin; /* "thin" o "auto" */
+//scrollbar-color: #888 #f1f1f1; /* Color del "pulgar" y fondo */

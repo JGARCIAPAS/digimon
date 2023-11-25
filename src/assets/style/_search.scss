@@ -1,0 +1,39 @@
+@import "fonts";
+@import "colors";
+.search {
+  margin: 17px;
+  form {
+    position: relative;
+    .input {
+      font-family: $pixel-font-italic;
+      padding: 5px 15px;
+      font-size: 20px;
+      width: 500px;
+      border-radius: 30px 0px 0px 30px;
+      border: none;
+      box-shadow: 0px 0px 40px $green-0;
+    }
+    input::placeholder {
+      color: $disabled;
+    }
+    input:focus {
+      outline: none;
+    }
+    .btn {
+      position: absolute;
+      display: inline;
+      height: 100%;
+      border: none;
+      box-shadow: 20px 0px 40px rgb(38, 129, 38);
+      padding: 0px 15px 0px 10px;
+      border-radius: 0px 30px 30px 0px;
+      cursor: pointer;
+      background: $gradient-1;
+      color: $white;
+      i {
+        padding: 8px 0px;
+        color: $green-bg;
+      }
+    }
+  }
+}

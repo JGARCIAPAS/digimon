@@ -9,6 +9,7 @@ class DigimonGroup extends Component {
       data: [],
       showModal: false,
       selectedDigimon: null,
+      isGroupContentVisible: false,
     };
   }
 
@@ -40,26 +41,43 @@ class DigimonGroup extends Component {
   closeModal = () => {
     this.setState({ showModal: false, selectedDigimon: null });
   };
+  toggleGroup = () => {
+    this.setState((prevState) => ({
+      isGroupContentVisible: !prevState.isGroupContentVisible,
+    }));
+  };
   render() {
+    const { level } = this.props;
+    const { data, isGroupContentVisible } = this.state;
     return (
       <>
-        <div>
-          <h1>Digimon Group: {this.props.level}</h1>
+        <div className="container-level">
+          <h2 className="title-level" onClick={this.toggleGroup}>
+            <i className="expand-icon fa-solid fa-chevron-down"></i>
+            {level}
+            <i className="expand-icon fa-solid fa-chevron-down"></i>
+          </h2>
           {
-            <ul className="digimon-group">
-              {this.state.data.map((creature, index) => (
-                <li
-                  key={index}
-                  className="creature"
-                  onClick={() => this.openModal(creature)}
-                >
-                  <p>{creature.name}</p>
-                  <picture>
-                    <source srcSet={creature.image}></source>
-                    <img src={creature.image} className="creature-main-image" />
-                  </picture>
-                </li>
-              ))}
+            <ul className="digimon-group" onClick={this.toggleGroup}>
+              {isGroupContentVisible &&
+                data.map((creature, index) => (
+                  <li
+                    key={index}
+                    className="creature"
+                    onClick={() => this.openModal(creature)}
+                  >
+                    <p className="creature-name">{creature.name}</p>
+                    <div className="img-container">
+                      <picture>
+                        <source srcSet={creature.image}></source>
+                        <img
+                          src={creature.image}
+                          className="creature-main-image"
+                        />
+                      </picture>
+                    </div>
+                  </li>
+                ))}
             </ul>
           }
         </div>

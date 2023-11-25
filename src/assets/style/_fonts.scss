@@ -1,0 +1,18 @@
+$pixel-font: "pixel_digivolveregular";
+$pixel-font-italic: "pixel_digivolveitalic";
+
+@font-face {
+  font-family: "pixel_digivolveregular";
+  src: url("./../fonts/pixel_digivolve-webfont.woff2") format("woff2"),
+    url("./../fonts/pixel_digivolve-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pixel_digivolveitalic";
+  src: url("./../fonts/pixel_digivolve_italic-webfont.woff2") format("woff2"),
+    url("./../fonts/pixel_digivolve_italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
