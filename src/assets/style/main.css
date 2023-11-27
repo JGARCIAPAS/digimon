@@ -1,14 +1,12 @@
 @font-face {
   font-family: "pixel_digivolveregular";
-  src: url("./../fonts/pixel_digivolve-webfont.woff2") format("woff2"),
-    url("./../fonts/pixel_digivolve-webfont.woff") format("woff");
+  src: url("./../fonts/pixel_digivolve-webfont.woff2") format("woff2"), url("./../fonts/pixel_digivolve-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "pixel_digivolveitalic";
-  src: url("./../fonts/pixel_digivolve_italic-webfont.woff2") format("woff2"),
-    url("./../fonts/pixel_digivolve_italic-webfont.woff") format("woff");
+  src: url("./../fonts/pixel_digivolve_italic-webfont.woff2") format("woff2"), url("./../fonts/pixel_digivolve_italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -50,11 +48,7 @@
   padding: 0px 15px 0px 10px;
   border-radius: 0px 30px 30px 0px;
   cursor: pointer;
-  background: linear-gradient(
-    18deg,
-    rgb(34, 139, 0) 35%,
-    rgb(137, 229, 108) 100%
-  );
+  background: linear-gradient(18deg, rgb(34, 139, 0) 35%, rgb(137, 229, 108) 100%);
   color: white;
 }
 .search form .btn i {
@@ -68,15 +62,14 @@
 .rgba-primary-3 { color: rgba( 47,177,  6,1) }
 .rgba-primary-4 { color: rgba( 34,139,  0,1) } */
 h2 {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgb(59, 126, 59);
   text-align: center;
-  background: linear-gradient(
-    90deg,
-    rgb(47, 117, 6) 0%,
-    rgb(123, 197, 123) 51%,
-    rgb(47, 117, 6) 100%
-  );
+  background: linear-gradient(90deg, rgb(47, 117, 6) 0%, rgb(123, 197, 123) 51%, rgb(47, 117, 6) 100%);
   box-shadow: 0px 3px 14px rgb(47, 177, 6);
+}
+h2 .expand-icon {
+  padding: 0px 10px;
+  font-size: medium;
 }
 
 .digimon-group {
@@ -91,6 +84,8 @@ h2 {
 }
 .digimon-group .creature .creature-name {
   text-align: center;
+  border-bottom: 3px solid rgb(47, 177, 6);
+  margin-bottom: 5px;
 }
 .digimon-group .creature .img-container {
   text-align: center;
@@ -133,15 +128,13 @@ h2 {
 .rgba-primary-4 { color: rgba( 34,139,  0,1) } */
 @font-face {
   font-family: "pixel_digivolveregular";
-  src: url("./../fonts/pixel_digivolve-webfont.woff2") format("woff2"),
-    url("./../fonts/pixel_digivolve-webfont.woff") format("woff");
+  src: url("./../fonts/pixel_digivolve-webfont.woff2") format("woff2"), url("./../fonts/pixel_digivolve-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "pixel_digivolveitalic";
-  src: url("./../fonts/pixel_digivolve_italic-webfont.woff2") format("woff2"),
-    url("./../fonts/pixel_digivolve_italic-webfont.woff") format("woff");
+  src: url("./../fonts/pixel_digivolve_italic-webfont.woff2") format("woff2"), url("./../fonts/pixel_digivolve_italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -205,16 +198,25 @@ canvas {
 .row-level .container-level:last-child {
   border-radius: 0px 0px 10px 10px;
 }
-body::-webkit-scrollbar {
-  height: 7px;
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(47, 177, 6) transparent;
 }
-body::-webkit-scrollbar-track {
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
   background: transparent;
 }
-body::-webkit-scrollbar-thumb {
+
+::-webkit-scrollbar-thumb {
   background: rgb(47, 177, 6);
   border-radius: 30px;
 }
-body::-webkit-scrollbar-thumb:hover {
+
+::-webkit-scrollbar-thumb:hover {
   background: rgb(34, 139, 0);
-}
+}/*# sourceMappingURL=main.css.map */

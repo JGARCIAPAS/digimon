@@ -16,7 +16,6 @@ class DigimonGroup extends Component {
   componentDidMount() {
     fetch(
       `https://www.digi-api.com/api/v1/digimon?level=${this.props.level}&pageSize=1422`
-      /*  `https://digimon-api.vercel.app/api/digimon/level/${this.props.level}` */
     )
       .then((response) => {
         if (!response.ok) {
@@ -25,11 +24,7 @@ class DigimonGroup extends Component {
         return response.json();
       })
       .then((data) => {
-        console.log(data.content);
         this.setState({ data: data.content });
-        console.log("start digimon de cada nivel");
-        console.log(this.state.data);
-        console.log("end digimon de cada nivel");
       })
       .catch((error) => {
         console.error("fetch error", error);
