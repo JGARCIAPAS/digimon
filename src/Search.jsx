@@ -7,7 +7,9 @@ class Search extends Component {
     this.state = {
       inputValue: "",
       showModal: false,
-      selectedDigimon: null,
+      selectedDigimon: {
+        name: "unknown",
+      },
     };
   }
   handleInputChange = (event) => {
