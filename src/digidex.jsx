@@ -79,8 +79,8 @@ class Digidex extends Component {
         <div className="digidex-container">
           <div className="header">
             <picture className="logo">
-              <source srcSet="src/assets/img/digidex_logo.png"></source>
-              <img className="logo" src="./src/assets/img/digidex_logo.png" />
+              <source srcSet="img/digidex_logo.png"></source>
+              <img className="logo" src="img/digidex_logo.png" />
             </picture>
           </div>
           <Search />
