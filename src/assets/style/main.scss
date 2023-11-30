@@ -1,6 +1,13 @@
 @use "search";
 @use "digimongroup";
 @use "digimonmodal";
+@import "modalheader";
+@import "evolutiontable";
+@import "modalloading";
+@import "modalfooter";
+@import "modalnodata";
+@import "footer";
+@import "mixins";
 @import "colors";
 @import "fonts";
 
@@ -60,6 +67,9 @@ canvas {
 body {
   scrollbar-width: thin;
   scrollbar-color: $green-3 transparent;
+  .creature-name {
+    color: $black;
+  }
 }
 body::-webkit-scrollbar {
   width: 7px;

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import DigimonGroup from "./DigimonGroup";
 import Search from "./Search";
+import Footer from "./Footer";
 
 class Digidex extends Component {
   constructor(props) {
@@ -41,23 +42,15 @@ class Digidex extends Component {
       .catch((error) => {
         console.error("fetch error", error);
       });
-    // Initialising the canvas
+
     var canvas = document.querySelector("canvas"),
       ctx = canvas.getContext("2d");
-
-    // Setting the width and height of the canvas
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
-    // Setting up the letters
     var letters = "01";
     letters = letters.split("");
-
-    // Setting up the columns
     var fontSize = 10,
       columns = canvas.width / fontSize;
-
-    // Setting up the drops
     var drops = [];
     for (var i = 0; i < columns; i++) {
       drops[i] = 1;
@@ -77,8 +70,7 @@ class Digidex extends Component {
         }
       }
     }
-
-    // Loop the animation
+    // Loop animation
     setInterval(draw, 33);
   }
   render() {
@@ -98,6 +90,7 @@ class Digidex extends Component {
             ))}
           </ul>
         </div>
+        <Footer />
         <canvas></canvas>
       </div>
     );

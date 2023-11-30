@@ -1,0 +1,54 @@
+@import "colors";
+
+.tables {
+  width: 100%;
+  padding: 0px 20px;
+  .info-table-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    background: $title_table;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    color: $white;
+    border: 3px solid $title_table_border;
+  }
+  table {
+    width: 100%;
+    background: $white;
+    margin-bottom: 20px;
+    border-spacing: 0px;
+    font-size: 11px;
+    thead {
+      th {
+        background: $back_head;
+        border: 2px solid $border_head;
+        color: $white;
+        font-weight: normal;
+      }
+      th:first-child {
+        width: 15%;
+      }
+      th:nth-child(2) {
+        width: 25%;
+      }
+      th:last-child {
+        width: 60%;
+      }
+    }
+    tbody {
+      border: 2px solid $border_row_body;
+      td {
+        border-bottom: 1px solid $border_row_body;
+        border-right: 1px solid $border_row_body;
+        img {
+          mix-blend-mode: multiply;
+          width: 70px;
+        }
+      }
+      tr:nth-child(2n) {
+        background: $pair_row;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import "fonts";
+@import "colors";
+
+.message-error {
+  width: 210px;
+  margin: 20px auto;
+  padding: 20px 10px;
+  border: 3px solid $green-4;
+  border-radius: 10px;
+  background: $white;
+  p {
+    color: $black;
+    font-family: $pixel-font;
+  }
+  img {
+    width: 100%;
+  }
+}

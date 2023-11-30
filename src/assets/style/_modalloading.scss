@@ -1,0 +1,36 @@
+@import "colors";
+@import "fonts";
+
+.loading-screen {
+  .loading-crest {
+    width: 250px;
+    margin-top: 40px;
+    animation: spin 4s linear infinite;
+  }
+  .loading-text {
+    font-size: 60px;
+    font-family: $pixel-font;
+    color: $white;
+    animation: blink 2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

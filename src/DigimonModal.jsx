@@ -1,5 +1,10 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
+import ModalFooter from "./assets/modalComponents/ModalFooter";
+import ModalHeader from "./assets/modalComponents/modalHeader";
+import ModalLoading from "./assets/modalComponents/ModalLoading";
+import ModalNoData from "./assets/modalComponents/ModalNoData";
+import EvolutionTable from "./assets/modalComponents/EvolutionTable";
 
 class DigimonModal extends Component {
   constructor(props) {
@@ -47,7 +52,7 @@ class DigimonModal extends Component {
           skills: data.skills,
           types: data.types,
         });
-        console.log(this.state.types);
+        console.log(data);
       })
       .catch((error) => {
         console.error("fetch error", error);
@@ -58,101 +63,82 @@ class DigimonModal extends Component {
     return (
       <div className="modal-background">
         <div className="modal-content">
-          <div className="modal-header">
-            <div className="modal-title">
-              <span>Digidex v1.0</span>
-              <div className="modal-close" onClick={this.props.onClose}></div>
-            </div>
-            <div className="modal-toolbar">
-              <div className="modal-address-bar">
-                <div className="modal-header-label">URL</div>
-                <div className="modal-header-field">
-                  <span>sdkjfhjsfghdshfg</span>
-                </div>
-              </div>
-              <div className="modal-favs-bar"></div>
-
-              <div className="modal-browser-logo">
-                <div className="logo-browser"></div>
-              </div>
-            </div>
-            <div className="modal-divider"></div>
-          </div>
+          <ModalHeader
+            onClose={this.props.onClose}
+            digimonName={this.props.selectedDigimon.name}
+          />
           {this.state.errorName ? (
-            <div className="modal-body">QUE MALA SUERTE CHATO</div>
+            <ModalNoData />
           ) : (
             <div>
               {!this.state.image ? (
-                <div className="modal-body">LOADING</div>
+                <ModalLoading />
               ) : (
-                <div className="modal-body">
-                  <p className="digimon-name">
-                    {this.props.selectedDigimon.name}
-                  </p>
-                  <p className="digimon-name">{this.state.name}</p>
-                  <p className="digimon-name">{this.state.id}</p>
-                  <p className="digimon-name">{this.state.releaseDate}</p>
-                  <p className="digimon-name">{this.state.xAntibody}</p>
-                  <p className="digimon-name">{this.state.description}</p>
-                  <img src={this.state.image} />
-                  <p className="digimon-name">atributos</p>
-                  {this.state.attributes.map((atr, index) => (
-                    <div key={index}>
-                      <p>{atr.attribute}</p>
+                <div className="modal-body info-digimon">
+                  <section className="left-side-info">
+                    <h3 className="info-name">
+                      #{this.state.id} - {this.props.selectedDigimon.name}
+                    </h3>
+                    <img className="info-img" src={this.state.image} />
+                    <div className="info-fields">
+                      {this.state.fields.map((field, index) => (
+                        <div className="info-each-field" key={index}>
+                          <img
+                            src={field.image}
+                            alt={field.field}
+                            title={field.field}
+                          />
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                  <p className="digimon-name">campos</p>
-                  {this.state.fields.map((field, index) => (
-                    <div key={index}>
-                      <p>{field.field}</p>
-                      <img src={field.image} />
+                  </section>
+                  <section className="right-side-info">
+                    <div className="info-levels">
+                      {this.state.levels.map((level, index) => (
+                        <div key={index}>
+                          <p>{level.level}</p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                  <p className="digimon-name">niveles</p>
-                  {this.state.levels.map((level, index) => (
-                    <div key={index}>
-                      <p>{level.level}</p>
+                    <p className="info-description">{this.state.description}</p>
+                    <div className="info-more-data">
+                      <div className="info-type">
+                        {this.state.types.map((type, index) => (
+                          <div key={index}>
+                            <p>Digimon {type.type}</p>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="info-statics">
+                        <p className="statics-title">types</p>
+                        {this.state.attributes.map((atr, index) => (
+                          <div key={index}>
+                            <p>{atr.attribute}</p>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="info-statics">
+                        <p className="statics-title">attacks</p>
+                        {this.state.skills.map((skill, index) => (
+                          <div key={index}>
+                            <p>{skill.skill}</p>
+                            {/*    <p>{skill.description}</p> */}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  ))}
-                  <p className="digimon-name">posibles evoluciones</p>
-                  {this.state.nextEvolutions.map((evol, index) => (
-                    <div key={index}>
-                      <p>{evol.id}</p>
-                      <img src={evol.image} style={{ width: "10px" }} />
-                      <p>{evol.digimon}</p>
-                    </div>
-                  ))}
-                  <p className="digimon-name">evoluciona de</p>
-                  {this.state.priorEvolutions.map((preEvol, index) => (
-                    <div key={index}>
-                      <p>{preEvol.id}</p>
-                      <img src={preEvol.image} style={{ width: "10px" }} />
-                      <p>{preEvol.digimon}</p>
-                    </div>
-                  ))}
-                  <p className="digimon-name">skills</p>
-                  {this.state.skills.map((skill, index) => (
-                    <div key={index}>
-                      <p>{skill.skill}</p>
-                      <p>{skill.description}</p>
-                    </div>
-                  ))}
-                  <p className="digimon-name">types</p>
-                  {this.state.types.map((type, index) => (
-                    <div key={index}>
-                      <p>{type.type}</p>
-                    </div>
-                  ))}
+                  </section>
+                  <section className="tables">
+                    <div className="info-table-title">possible evolutions</div>
+                    <EvolutionTable evolutions={this.state.nextEvolutions} />
+                    <div className="info-table-title">evolve from</div>
+                    <EvolutionTable evolutions={this.state.priorEvolutions} />
+                  </section>
                 </div>
               )}
             </div>
           )}
-          <div className="modal-footer">
-            <div className="modal-footer-box"></div>
-            <div className="modal-footer-source">
-              <span>Internet</span>
-            </div>
-          </div>
+          <ModalFooter />
         </div>
       </div>
     );
